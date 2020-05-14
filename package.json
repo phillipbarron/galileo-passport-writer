@@ -1,0 +1,7 @@
+{
+  "name": "galileo-passport-writer",
+  "version": "1.0.0",
+  "description": "subscribe to notifications and build passport based on those",
+  "main": "index.js",
+  "license": "MIT"
+}
