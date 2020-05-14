@@ -6,6 +6,7 @@
   "license": "MIT",
   "dependencies": {
     "@bbc/passport-event-generator": "^1.0.0",
-    "aws-sdk": "^2.676.0"
+    "aws-sdk": "^2.676.0",
+    "dotenv": "^8.2.0"
   }
 }

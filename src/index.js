@@ -1,10 +1,11 @@
+require('dotenv').config();
+
 const AWS = require("aws-sdk");
 const credentialsProvider = require("./index");
 
 AWS.config.update({ region: "eu-west-1" });
 
-const QueueUrl =
-  "https://sqs.eu-west-1.amazonaws.com/169163488685/phill-test-topic-queue";
+const QueueUrl = process.env.BABEL_PUBLICATION_QUEUE;
 
 const parameters = {
   AttributeNames: ["SentTimestamp"],
