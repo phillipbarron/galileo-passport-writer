@@ -11,10 +11,13 @@ const service = {
 }
 const sendPassportEvent = async babelMessage => {
   // build passport
+  console.log('building passport with', babelMessage);
   const { publisher: { id: user } } = babelMessage;
   const passportFromMessage = passportMapper.mapToPassport(babelMessage);
+  console.info({ passportFromMessage });
   // get current state
-  const currentPassport = passportApiClient.getPassport(passportFromMessage.locator);
+  const currentPassport = await passportApiClient.getPassport(passportFromMessage.locator);
+  console.info({ currentPassport });
   // build delta
   const delta = deltaService.generatePassportEvent({
     oldPassport: currentPassport,
@@ -22,8 +25,10 @@ const sendPassportEvent = async babelMessage => {
     user,
     service
   });
+
+  console.info({ delta });
   // write to passport writer
-  passporWriterClient.sendPassportEvent(delta);
+  // return passporWriterClient.sendPassportEvent(delta);
 }
 
 module.exports = {
