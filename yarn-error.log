@@ -1,0 +1,42 @@
+Arguments: 
+  /Users/barrop02/.nvm/versions/node/v10.15.0/bin/node /Users/barrop02/.yarn/bin/yarn.js add aww-sdk
+
+PATH: 
+  /Users/barrop02/.yarn/bin:/Users/barrop02/.config/yarn/global/node_modules/.bin:/Users/barrop02/Downloads/google-cloud-sdk/bin:/Users/barrop02/.nvm/versions/node/v10.15.0/bin:/Users/barrop02/.rvm/gems/ruby-2.5.0/bin:/Users/barrop02/.rvm/gems/ruby-2.5.0@global/bin:/Users/barrop02/.rvm/rubies/ruby-2.5.0/bin:/usr/local/bin:/Users/barrop02/Workspace/galileo:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/sbin:/gems/ruby-2.2.1/bin:/Users/barrop02/.rvm/gems/ruby-2.2.1@global/bin:/Users/barrop02/.rvm/rubies/ruby-2.2.1/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/barrop02/javalibs/ant/bin:/Users/barrop02/javalibs/maven/bin:/Users/barrop02/javalibs/gradle/bin::/Users/barrop02/.rvm/bin:/usr/local:/Users/barrop02/workspace/cosmos-tooling:/Users/barrop02/.rvm/bin
+
+Yarn version: 
+  1.22.4
+
+Node version: 
+  10.15.0
+
+Platform: 
+  darwin x64
+
+Trace: 
+  Error: https://registry.yarnpkg.com/aww-sdk: Not found
+      at Request.params.callback [as _callback] (/Users/barrop02/.yarn/lib/cli.js:66987:18)
+      at Request.self.callback (/Users/barrop02/.yarn/lib/cli.js:140748:22)
+      at Request.emit (events.js:182:13)
+      at Request.<anonymous> (/Users/barrop02/.yarn/lib/cli.js:141720:10)
+      at Request.emit (events.js:182:13)
+      at IncomingMessage.<anonymous> (/Users/barrop02/.yarn/lib/cli.js:141642:12)
+      at Object.onceWrapper (events.js:273:13)
+      at IncomingMessage.emit (events.js:187:15)
+      at endReadableNT (_stream_readable.js:1094:12)
+      at process._tickCallback (internal/process/next_tick.js:63:19)
+
+npm manifest: 
+  {
+    "name": "galileo-passport-writer",
+    "version": "1.0.0",
+    "description": "subscribe to notifications and build passport based on those",
+    "main": "index.js",
+    "license": "MIT"
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile

@@ -3,5 +3,9 @@
   "version": "1.0.0",
   "description": "subscribe to notifications and build passport based on those",
   "main": "index.js",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "@bbc/passport-event-generator": "^1.0.0",
+    "aws-sdk": "^2.676.0"
+  }
 }
