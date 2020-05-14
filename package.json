@@ -7,6 +7,7 @@
   "dependencies": {
     "@bbc/passport-event-generator": "^1.0.0",
     "aws-sdk": "^2.676.0",
+    "axios": "^0.19.2",
     "dotenv": "^8.2.0"
   }
 }
