@@ -12,7 +12,7 @@ const service = {
 const sendPassportEvent = async babelMessage => {
   // build passport
   console.log('building passport with', babelMessage);
-  const { publisher: { id: user } } = babelMessage;
+  const { audit: { publisher: { id: user } }} = babelMessage;
   const passportFromMessage = passportMapper.mapToPassport(babelMessage);
   console.info({ passportFromMessage });
   // get current state

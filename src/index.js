@@ -37,7 +37,7 @@ const getMessages = () => {
         //   }
         // });
       }
-      getMessages();
+      // getMessages();
     }
   });
 };
