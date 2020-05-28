@@ -21,7 +21,7 @@ const getMessages = () => {
     } else if (data.Messages) {
       try {
         const asObject = JSON.parse(data.Messages[0].Body);
-        eventService.sendPassportEvent(asObject);
+        eventService.sendPassportEvent(JSON.parse(asObject.Message));
       } catch (e) {
         console.error('a bad thing happened', e);
       } finally {

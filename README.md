@@ -1,6 +1,6 @@
 # galileo-passport-writer
 
-Create passports based on publication notifications send from Babel
+Create passports based on publication notifications sent from Babel
 
 ## todo
 
