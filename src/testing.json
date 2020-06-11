@@ -1,0 +1,92 @@
+{
+  "audit": {
+    "updateSource": {
+      "name": "galileo",
+      "activityId": "31f8999f-f529-4251-b584-b96bb4a90dea"
+    },
+    "publisher": {
+      "name": "castaway",
+      "activityId": "31f8999f-f529-4251-b584-b96bb4a90dea"
+    },
+    "user": { "id": "Phill.Barron@bbc.co.uk", "groupId": "World Service" },
+    "eventTime": "2020-06-11T14:34:32.619Z"
+  },
+  "programme": {
+    "pid": "p01rkc9n",
+    "alternateId": "castaway:81e7400c-ed88-4df5-a793-82bff7d86bae",
+    "parentPid": null,
+    "embargoed": false,
+    "type": "clip",
+    "mediaType": "audio",
+    "languages": ["en-gb"],
+    "title": "SOME",
+    "synopses": { "long": null, "medium": null, "short": "AMAZING CONTENT" },
+    "caption": null,
+    "formats": [],
+    "genres": [],
+    "embeddable": true,
+    "tags": {
+      "category": "Clip",
+      "types": {
+        "about": [
+          "http://www.bbc.co.uk/things/7bd86a8b-167e-4b03-a7ac-5a602368c367#id"
+        ]
+      }
+    },
+    "taggings": [{ "namespace": "news_languages", "tags": ["korean"] }],
+    "versions": [
+      {
+        "pid": "p01rkc9q",
+        "types": ["Original version"],
+        "durationMillis": 1788000,
+        "editorialAspectRatio": null,
+        "warnings": [],
+        "taggings": [],
+        "assets": [
+          {
+            "type": "media",
+            "location": "s3://test-galileo-interface-mt-resources-inputbucket-3z3olim0ng99/castaway/20100409-113000-meet-david-sedaris-321b9698-bdf8-4e9b-9f69-5d2ba924b44f.mp3"
+          }
+        ],
+        "availability": {
+          "revoked": false,
+          "dates": { "start": "2020-06-11T14:28:22Z", "end": null },
+          "territories": ["nonuk", "uk"],
+          "platforms": ["pc", "nodrm", "mobile", "stb"]
+        }
+      }
+    ],
+    "images": [
+      {
+        "pid": "p012zl0f",
+        "embargoed": false,
+        "type": "standard",
+        "author": null,
+        "title": "World Service Thumbnail",
+        "synopses": {
+          "long": null,
+          "medium": null,
+          "short": "World Service Thumbnail"
+        },
+        "asset": {
+          "type": null,
+          "location": "https://s3-eu-west-1.amazonaws.com/test-galileo-interface-mt-resources-imagebucket-dcjgqgo7h0nr/p0/12/zl/p012zl0f.jpg",
+          "dimensions": { "widthPx": 976, "heightPx": 549 },
+          "mimeType": "image/jpeg"
+        },
+        "mimeType": "image/jpeg",
+        "relationshipType": "is_image_for"
+      }
+    ],
+    "syndicationDestinations": [],
+    "advertistingType": "commercial",
+    "masterBrand": "bbc_webonly",
+    "relatedLinks": []
+  },
+  "publication": {
+    "availability": null,
+    "updateType": "available_ms6",
+    "taggingStatus": null,
+    "syndicationStatus": null
+  }
+}
