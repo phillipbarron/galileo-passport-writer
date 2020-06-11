@@ -1,17 +1,14 @@
 const homeResolver = require("./home-resolver");
 
-const getTags = tags => {
-  console.log("InsideGetTags", JSON.stringify(tags));
-  const taggings =
+const getTags = (tags) =>
   tags && tags.types && tags.types.about
     ? tags.types.about.map((tag) => ({
         predicate: "http://www.bbc.co.uk/ontologies/passport/predicate/About",
         value: tag,
       }))
     : undefined;
-    console.log("InsideGetTags - returning ", taggings);
-    return taggings
-}
+
+
 const mapToPassport = (babelMessage) => {
   const {
     programme: { languages, tags, taggings: categories },
