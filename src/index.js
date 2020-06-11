@@ -13,7 +13,7 @@ const parameters = {
   WaitTimeSeconds: 0
 };
 
-const getMessages = () => {
+const getMessages = async () => {
   var sqs = new AWS.SQS({ apiVersion: "2012-11-05" });
   sqs.receiveMessage(parameters, async function(err, data) {
     if (err) {
@@ -42,6 +42,12 @@ const getMessages = () => {
       }
     }
   });
+  await new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve();
+    }, 3000);
+  });
+  getMessages();
 };
 
 getMessages();

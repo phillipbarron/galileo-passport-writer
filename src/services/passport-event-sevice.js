@@ -16,7 +16,6 @@ const sendPassportEvent = async (babelMessage) => {
   } = babelMessage;
   if (updateType === 'revoke') return false; // todo - have this send negative availability assertion
   const passportFromMessage = passportMapper.mapToPassport(babelMessage);
-  console.info({ passportFromMessage });
   // build delta
   if (passportFromMessage) {
     const delta = generatePassportEvent.default({
@@ -37,7 +36,7 @@ const sendPassportEvent = async (babelMessage) => {
       ...delta,
       ...{ assertions: updatedAssertions}
     };
-    console.info({ delta: JSON.stringify(deltaWithGeneratedAtTime) });
+    console.info({ passportDelta: JSON.stringify(deltaWithGeneratedAtTime) });
     await passporWriterClient.sendPassportEvent(deltaWithGeneratedAtTime);
     return true;
   }
