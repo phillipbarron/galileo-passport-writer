@@ -1,41 +1,50 @@
-
-
 const passportMapper = require("../babel-passport-mapper");
-const passportApiClient = require('../passport-api-client');
-const passporWriterClient = require('../passport-writer-client');
-const generatePassportEvent = require('@bbc/passport-event-generator');
+const passporWriterClient = require("../passport-writer-client");
+const generatePassportEvent = require("@bbc/passport-event-generator");
 
 const service = {
-  identifier: 'galileo-passport-writer',
-  version: '1.0.0'
+  identifier: "galileo-passport-writer",
+  version: "1.0.0",
 };
 
-const sendPassportEvent = async babelMessage => {
-  // build passport
-  console.log('building passport with', babelMessage);
-  const { audit: { user: { id: user } }} = babelMessage;
-  console.log('AND THE USER IS ', user);
+const sendPassportEvent = async (babelMessage) => {
+  const {
+    audit: {
+      user: { id: user },
+    },
+    publication: { updateType },
+  } = babelMessage;
+  if (updateType === 'revoke') return false; // todo - have this send negative availability assertion
   const passportFromMessage = passportMapper.mapToPassport(babelMessage);
   console.info({ passportFromMessage });
-  // get current state
-  // const currentPassport = passportFromMessage ? await passportApiClient.getPassport(passportFromMessage.locator): {};
   // build delta
   if (passportFromMessage) {
     const delta = generatePassportEvent.default({
       oldPassport: {},
       newPassport: passportFromMessage,
       user,
-      service
+      service,
     });
-  
-    console.info({ delta: JSON.stringify(delta) });
-    return;
-    // write to passport writer
-    // return passporWriterClient.sendPassportEvent(delta);
+
+    const generatedAtTime = new Date(Date.now()).toISOString();
+
+    const updatedAssertions = delta.assertions.map(assertion => {
+      assertion.provenance.generatedAtTime = generatedAtTime;
+      return assertion;
+    });
+
+    const deltaWithGeneratedAtTime = {
+      ...delta,
+      ...{ assertions: updatedAssertions}
+    };
+    console.info({ delta: JSON.stringify(deltaWithGeneratedAtTime) });
+    await passporWriterClient.sendPassportEvent(deltaWithGeneratedAtTime);
+    return true;
   }
   console.info("insufficient data to create passport");
-}
+  return false;
+};
 
 module.exports = {
-  sendPassportEvent
+  sendPassportEvent,
 };

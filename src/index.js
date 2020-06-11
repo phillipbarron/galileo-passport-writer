@@ -20,24 +20,26 @@ const getMessages = () => {
       console.log("Receive Error", err);
     } else if (data.Messages) {
       try {
-        const asObject = JSON.parse(data.Messages[0].Body);
-        eventService.sendPassportEvent(JSON.parse(asObject.Message));
+        const babelMessage = JSON.parse(data.Messages[0].Body);
+        const builtEvent = await eventService.sendPassportEvent(JSON.parse(babelMessage.Message));
+        if(!builtEvent) {
+          getMessages();
+        }
       } catch (e) {
         console.error('a bad thing happened', e);
       } finally {
-        // var deleteParams = {
-        //   QueueUrl,
-        //   ReceiptHandle: data.Messages[0].ReceiptHandle
-        // };
-        // sqs.deleteMessage(deleteParams, function(err, data) {
-        //   if (err) {
-        //     console.log("Delete Error", err);
-        //   } else {
-        //     console.log("Message Deleted", data);
-        //   }
-        // });
+        var deleteParams = {
+          QueueUrl: parameters.QueueUrl,
+          ReceiptHandle: data.Messages[0].ReceiptHandle
+        };
+        sqs.deleteMessage(deleteParams, function(err, data) {
+          if (err) {
+            console.log("Delete Error", err);
+          } else {
+            console.log("Message Deleted", data);
+          }
+        });
       }
-      // getMessages();
     }
   });
 };
